@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E6789 GS NGỮ ÂM </title>
+    <title>E6789 GS NGỮ ÂM</title>
     <style>
         /* --- CÀI ĐẶT CƠ BẢN & TĂNG KÍCH THƯỚC TOÀN BỘ --- */
         body {
             font-family: Arial, sans-serif;
-            max-width: 1100px; /* Tăng từ 800 lên 1100px */
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f5;
-            font-size: 18px; /* Tăng base font size */
+            font-size: 18px;
         }
         .container {
             display: flex;
@@ -24,7 +24,7 @@
         .login-screen, .quiz-screen, .result-screen, .contact-screen {
             width: 100%;
             background-color: white;
-            padding: 30px; /* Tăng padding */
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin-bottom: 30px;
@@ -34,11 +34,11 @@
         /* Input, Button, Select tăng kích thước */
         input, button, select {
             width: 100%;
-            padding: 16px; /* Tăng từ 12px */
-            margin: 10px 0; /* Tăng khoảng cách */
+            padding: 16px;
+            margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 20px; /* Tăng font */
+            font-size: 20px;
             box-sizing: border-box;
         }
 
@@ -65,7 +65,7 @@
             background-color: #f1f1f1;
             border-radius: 8px;
             margin-bottom: 25px;
-            height: 25px; /* Tăng chiều cao thanh timer */
+            height: 25px;
         }
         .timer-bar {
             height: 100%;
@@ -77,7 +77,7 @@
 
         /* Tiêu đề câu hỏi */
         .question {
-            font-size: 24px; /* Tăng từ 18px */
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
             text-align: center;
@@ -96,7 +96,7 @@
             border-radius: 10px;
         }
         .word {
-            font-size: 32px; /* Tăng từ 24px */
+            font-size: 32px;
             font-weight: bold;
             color: #2c3e50;
             text-align: center;
@@ -109,44 +109,40 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            font-size: 22px; /* Kích thước chữ to hơn */
+            font-size: 22px;
             font-weight: bold;
-            
-            /* --- THAY ĐỔI: XÓA NỀN XÁM VÀ VIỀN ĐỂ TRỘNG VỚI NỀN TRẮNG --- */
-            background-color: transparent; /* Trồng với màn hình quiz màu trắng */
-            border: none; /* Bỏ viền */
-            border-radius: 0; /* Bỏ bo góc */
-            padding: 5px 0; /* Giảm padding dọc để không tạo cảm giác khung rỗng */
-            /* ------------------------------------------------------------------- */
-            
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 5px 0;
         }
         .quiz-info-left {
-            color: #2c3e50; /* Màu tối cho câu hỏi */
+            color: #2c3e50;
         }
         .quiz-info-right {
-            color: #e67e22; /* Màu cam cho chuỗi đúng */
+            color: #e67e22;
         }
 
         /* Các lựa chọn */
         .options {
             display: flex;
             flex-direction: column;
-            gap: 12px; /* Tăng khoảng cách giữa các nút option */
+            gap: 12px;
         }
         .option {
-            padding: 18px; /* Tăng padding */
+            padding: 18px;
             margin: 0;
             background-color: #f9f9f9;
-            border: 2px solid #ddd; /* Viền đậm hơn chút */
+            border: 2px solid #ddd;
             border-radius: 10px;
             cursor: pointer;
             text-align: left;
-            font-size: 20px; /* Tăng font chữ đáp án */
+            font-size: 20px;
             transition: all 0.2s ease;
         }
         .option:hover {
             background-color: #e9e9e9;
-            transform: translateX(5px); /* Hiệu ứng nhẹ khi hover */
+            transform: translateX(5px);
             border-color: #bbb;
         }
 
@@ -171,7 +167,7 @@
         .result-summary-container {
             display: flex;
             flex-direction: row; 
-            gap: 30px; /* Tăng khoảng cách */
+            gap: 30px;
             margin-bottom: 40px;
             width: 100%;
         }
@@ -193,17 +189,17 @@
         .result-name-new {
             color: #006d75; 
             font-weight: 900;
-            font-size: 44px; /* TĂNG 20% (36px * 1.2 = 43.2px -> round 44px) */
+            font-size: 44px;
             margin-bottom: 25px;
             text-align: center;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            line-height: 1.2;
         }
 
         /* Vùng chứa biểu đồ tròn */
         .chart-wrapper {
             position: relative;
-            width: 220px; /* Tăng từ 180px */
+            width: 220px;
             height: 220px;
             margin-bottom: 20px;
         }
@@ -231,37 +227,35 @@
             border-radius: 50%;
         }
 
-        /* --- PHẦN CHỮ ĐÈ LÊN BIỂU ĐỒ (ĐIỀU CHỈNH) --- */
+        /* --- PHẦN CHỮ ĐÈ LÊN BIỂU ĐỒ --- */
         .chart-text-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Canh tâm container */
-            
-            /* Sử dụng Flexbox để căn chỉnh nội dung bên trong */
+            transform: translate(-50%, -50%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             width: 100%;
-            height: 100%; /* Chiều cao đầy đủ để căn giữa dễ hơn */
+            height: 100%;
             z-index: 2;
         }
 
         .percentage-text {
-            font-size: 36px; /* TĂNG KÍCH THƯỚC */
+            font-size: 36px;
             font-weight: 900;
             display: block;
             line-height: 1;
-            margin-bottom: 5px; /* Khoảng cách nhỏ tới số câu */
+            margin-bottom: 5px;
         }
 
         .score-text {
-            font-size: 18px; /* Tăng nhẹ */
+            font-size: 18px;
             font-weight: bold;
             display: block;
-            margin-top: 0; /* Đặt về 0 để Flexbox xử lý khoảng cách đều đặn hơn */
+            margin-top: 0;
             color: #333;
         }
 
@@ -269,7 +263,7 @@
             margin-top: 20px;
             font-weight: bold;
             color: #003a8c; 
-            font-size: 16px; /* Tăng từ 14px */
+            font-size: 16px;
             text-align: center;
         }
 
@@ -290,14 +284,14 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 20px; /* Tăng gap */
+            gap: 20px;
             width: 100%;
         }
 
         .stat-item {
             background-color: #f0f5ff;
             border-radius: 15px;
-            padding: 20px; /* Tăng padding */
+            padding: 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -306,12 +300,12 @@
         }
 
         .stat-icon {
-            font-size: 32px; /* Tăng icon */
+            font-size: 32px;
             margin-bottom: 10px;
         }
 
         .stat-label {
-            font-size: 14px; /* Tăng từ 12px */
+            font-size: 14px;
             color: #666;
             margin-bottom: 8px;
             text-transform: uppercase;
@@ -319,7 +313,7 @@
         }
 
         .stat-value {
-            font-size: 20px; /* TĂNG 20% (từ 16px lên khoảng 19-20px) */
+            font-size: 20px;
             font-weight: 900;
             color: #333;
         }
@@ -337,9 +331,9 @@
         }
         .section-title {
             font-weight: bold;
-            font-size: 22px; /* Tăng từ 18px */
+            font-size: 22px;
             margin-bottom: 15px;
-            border-bottom: 3px solid #eee; /* Viền đậm hơn */
+            border-bottom: 3px solid #eee;
             padding-bottom: 10px;
             color: #2c3e50;
         }
@@ -354,7 +348,7 @@
             margin-top: 20px;
             width: 100%;
             border-collapse: collapse;
-            font-size: 16px; /* Tăng font bảng */
+            font-size: 16px;
         }
         .answer-history th, .answer-history td {
             border: 1px solid #ddd;
@@ -381,13 +375,17 @@
             font-weight: bold;
             font-size: 20px;
         }
+        
+        /* Đã loại bỏ text-transform: uppercase để hiển thị chính xác tên UNIT */
         .screen-title {
             text-align: center;
             margin-bottom: 30px;
             color: #2c3e50;
-            font-size: 32px; /* Tăng tiêu đề màn hình */
-            text-transform: uppercase;
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.3;
         }
+
         .contact-info {
             margin-bottom: 25px;
             background: #fff;
@@ -433,13 +431,12 @@
 
         /* --- RESPONSIVE (ĐIỀU CHỈNH LẠI CHO MOBILE) --- */
         @media (max-width: 900px) {
-            /* Chuyển sang hàng dọc trên điện thoại khi màn hình bé hơn 900px (do tăng size tổng thể) */
             .result-summary-container {
                 flex-direction: column;
             }
             
             .result-name-new {
-                font-size: 32px; /* Giảm chút cho mobile nhưng vẫn to hơn bản cũ */
+                font-size: 28px; /* Giảm nhẹ cho mobile để vừa dòng */
             }
             
             .chart-wrapper {
@@ -451,7 +448,6 @@
                 font-size: 30px;
             }
             
-            /* Giảm kích thước font tiêu đề quiz một chút trên mobile */
             .question {
                 font-size: 20px;
             }
@@ -462,6 +458,9 @@
                 font-size: 16px;
                 padding: 12px;
             }
+            .screen-title {
+                font-size: 22px; /* Giảm size tiêu đề cho mobile */
+            }
         }
     </style>
 </head>
@@ -469,7 +468,9 @@
     <div class="container">
         <!-- Login Screen -->
         <div id="login-screen" class="login-screen">
-            <h2 class="screen-title"> E6789 GS NGỮ ÂM </h2>
+            <!-- Tiêu đề trang đăng nhập giữ nguyên tên chung -->
+            <h2 class="screen-title">E6789 GS NGỮ ÂM</h2>
+            
             <div class="form-group">
                 <label for="username">Nhập tên của bạn:</label>
                 <input type="text" id="username" placeholder="Tên của bạn">
@@ -477,6 +478,7 @@
             <div class="form-group">
                 <label for="unit-select">Chọn UNIT:</label>
                 <select id="unit-select">
+                    <!-- Đã cập nhật danh sách UNIT đầy đủ theo yêu cầu -->
                     <option value="UNIT 1">UNIT 1: E6789 GS NGỮ ÂM ĐUÔI S ES</option>
                     <option value="UNIT 2">UNIT 2: E6789 GS NGỮ ÂM ĐUÔI ED</option>
                     <option value="UNIT 3">UNIT 3: E6789 GS NGỮ ÂM GK1 E6</option>
@@ -510,13 +512,14 @@
 
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="quiz-screen hidden">
-            <h2 class="screen-title" id="quiz-title"> E6789 GS NGỮ ÂM </h2>
+            <!-- Tiêu đề sẽ được thay đổi bằng JS để hiển thị tên đầy đủ -->
+            <h2 id="quiz-title" class="screen-title">...</h2>
             
             <div class="timer-container">
                 <div id="timer-bar" class="timer-bar"></div>
             </div>
 
-            <!-- HEADER INFO (NỀN TRONG SUỐT) -->
+            <!-- HEADER INFO -->
             <div class="quiz-header-info">
                 <div id="question-counter" class="quiz-info-left">Câu 1/10</div>
                 <div id="streak" class="quiz-info-right">Chuỗi đúng: 0</div>
@@ -531,7 +534,8 @@
 
         <!-- Result Screen -->
         <div id="result-screen" class="result-screen hidden">
-            <h2 class="screen-title" id="result-title"> E6789 GS NGỮ ÂM </h2>
+            <!-- Tiêu đề sẽ được thay đổi bằng JS để hiển thị tên đầy đủ -->
+            <h2 id="result-title" class="screen-title">...</h2>
             
             <!-- KHU VỰC TỔNG HỢP -->
             <div class="result-summary-container">
@@ -2039,8 +2043,10 @@
                 { id: 2, word: "UNIT 10: Choose the word whose <span class=\"underlined-red\">underlined</span> part differs from the other three in pronunciation.", correct: "r<span class=\"underlined-red\">db</span>", wrong1: "m<span class=\"underlined-red\">db</span>", wrong2: "n<span class=\"underlined-red\">db</span>", wrong3: "p<span class=\"underlined-red\">db</span>" },
                 { id: 3, word: "UNIT 10: Choose the word whose <span class=\"underlined-red\">underlined</span> part differs from the other three in pronunciation.", correct: "st<span class=\"underlined-red\">db</span>", wrong1: "bl<span class=\"underlined-red\">db</span>", wrong2: "cl<span class=\"underlined-red\">db</span>", wrong3: "fl<span class=\"underlined-red\">db</span>" },
                 { id: 4, word: "UNIT 10: Choose the word whose <span class=\"underlined-red\">underlined</span> part differs from the other three in pronunciation.", correct: "tr<span class=\"underlined-red\">db</span>", wrong1: "dr<span class=\"underlined-red\">db</span>", wrong2: "gr<span class=\"underlined-red\">db</span>", wrong3: "pr<span class=\"underlined-red\">db</span>" }
-            ],
-        
+       ],
+       
+
+
             "UNIT 3": [
                 { id: 1, word: "UNIT 3: Choose the word whose <span class=\"underlined-red\">underlined</span> part differs from the other three in pronunciation.", correct: "f<span class=\"underlined-red\">aa</span>ther", wrong1: "b<span class=\"underlined-red\">aa</span>th", wrong2: "p<span class=\"underlined-red\">aa</span>th", wrong3: "gr<span class=\"underlined-red\">aa</span>ss" },
                 { id: 2, word: "UNIT 3: Choose the word whose <span class=\"underlined-red\">underlined</span> part differs from the other three in pronunciation.", correct: "pl<span class=\"underlined-red\">aa</span>nt", wrong1: "c<span class=\"underlined-red\">aa</span>nt", wrong2: "sh<span class=\"underlined-red\">aa</span>nt", wrong3: "h<span class=\"underlined-red\">aa</span>nt" },
@@ -2169,7 +2175,8 @@
         let endTime;
         let currentWord = "";
         let questionCount = 20;
-        let selectedUnit = "UNIT 1";
+        let selectedUnitKey = "UNIT 1"; // Dùng để lấy dữ liệu từ Object
+        let selectedUnitName = ""; // Dùng để hiển thị lên giao diện
 
         // DOM elements
         const loginScreen = document.getElementById('login-screen');
@@ -2196,7 +2203,7 @@
 
         // Initialize the question count options based on the number of questions available
         function initQuestionCountOptions() {
-            const unitQuestions = allQuestions[selectedUnit];
+            const unitQuestions = allQuestions[selectedUnitKey];
             const totalQuestions = unitQuestions.length;
             questionCountSelect.innerHTML = ''; // Clear existing options
             
@@ -2239,14 +2246,14 @@
 
         // Update selected unit
         function updateSelectedUnit() {
-            selectedUnit = unitSelect.value;
+            selectedUnitKey = unitSelect.value;
+            selectedUnitName = unitSelect.options[unitSelect.selectedIndex].text;
             initQuestionCountOptions();
         }
 
         // Initialize the question count options when the page loads
         document.addEventListener('DOMContentLoaded', function() {
-            selectedUnit = unitSelect.value;
-            initQuestionCountOptions();
+            updateSelectedUnit(); // Khởi tạo cả key và name
         });
 
         // Show contact screen
@@ -2269,23 +2276,26 @@
                 return;
             }
             questionCount = parseInt(questionCountSelect.value);
-            selectedUnit = unitSelect.value;
+            
+            // Lấy giá trị từ dropdown
+            selectedUnitKey = unitSelect.value; // Ví dụ: "UNIT 1"
+            selectedUnitName = unitSelect.options[unitSelect.selectedIndex].text; // Ví dụ: "UNIT 1: E6789..."
             
             // Get the questions for the selected unit
-            const unitQuestions = allQuestions[selectedUnit];
+            const unitQuestions = allQuestions[selectedUnitKey];
             
             // Check if we have enough questions
             if (unitQuestions.length < questionCount) {
-                alert(`Không đủ câu hỏi trong ${selectedUnit}. Chỉ có ${unitQuestions.length} câu hỏi.`);
+                alert(`Không đủ câu hỏi trong ${selectedUnitName}. Chỉ có ${unitQuestions.length} câu hỏi.`);
                 return;
             }
             
             // Select random questions
             selectedQuestions = getRandomQuestions(unitQuestions, questionCount);
             
-            // Update titles with the selected unit
-            quizTitle.textContent = selectedUnit + " - E6789 GS NGỮ ÂM ";
-            resultTitle.textContent = selectedUnit + " - E6789 GS NGỮ ÂM ";
+            // Update titles với TÊN ĐẦY ĐỦ của Unit
+            quizTitle.textContent = selectedUnitName;
+            resultTitle.textContent = selectedUnitName;
             
             // Reset game state
             currentQuestionIndex = 0;
@@ -2388,7 +2398,7 @@
                 }
             });
             
-            // Record wrong answer - lưu ID của câu hỏi từ kho dữ liệu gốc
+            // Record wrong answer
             wrongQuestions.push(selectedQuestions[currentQuestionIndex].id);
             answerHistory.push({
                 question: currentWord,
@@ -2436,7 +2446,6 @@
                 }
                 streakElement.textContent = `Chuỗi đúng: ${streak}`;
                 
-                // Record answer history
                 answerHistory.push({
                     question: currentWord,
                     selected: optionElement.textContent,
@@ -2459,10 +2468,9 @@
                     }
                 });
                 
-                // Record wrong answer - lưu ID của câu hỏi từ kho dữ liệu gốc
+                // Record wrong answer
                 wrongQuestions.push(selectedQuestions[currentQuestionIndex].id);
                 
-                // Record answer history
                 answerHistory.push({
                     question: currentWord,
                     selected: optionElement.textContent,
@@ -2552,7 +2560,7 @@
             
             // --- CÁC PHẦN KHÁC (GIỮ NGUYÊN) ---
             
-            // Display wrong questions - hiển thị ID của câu hỏi từ kho dữ liệu gốc
+            // Display wrong questions
             wrongQuestionsElement.innerHTML = '';
             if (wrongQuestions.length === 0) {
                 wrongQuestionsElement.innerHTML = '<li>Không có câu nào làm sai</li>';
@@ -2623,7 +2631,7 @@
         // Restart the game with same settings
         function restartGame() {
             // Get new random questions different from the previous set
-            const unitQuestions = allQuestions[selectedUnit];
+            const unitQuestions = allQuestions[selectedUnitKey];
             
             // Create a new set of random questions
             selectedQuestions = getRandomQuestions(unitQuestions, questionCount);
